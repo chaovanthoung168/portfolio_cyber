@@ -1,0 +1,100 @@
+.journeySection {
+  width: 100%;
+  padding: 4rem 0;
+  border-bottom: 1px dashed var(--neon-cyan);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.header {
+  text-align: left;
+}
+
+.flowContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 2rem;
+  padding-left: 20px;
+}
+
+@media (min-width: 768px) {
+  .flowContainer {
+    padding-left: 40px;
+  }
+}
+
+.stepWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .stepWrapper {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+.stepNode {
+  width: 40px;
+  height: 40px;
+  background: var(--bg-base);
+  border: 2px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  z-index: 2;
+  position: absolute;
+  left: -40px;
+  top: 0;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+@media (min-width: 768px) {
+  .stepNode {
+    position: relative;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}
+
+.connectionLine {
+  position: absolute;
+  left: -21px;
+  top: 40px;
+  width: 2px;
+  height: calc(100% + 2rem);
+  background: linear-gradient(to bottom, var(--neon-cyan), transparent);
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .connectionLine {
+    left: 29px;
+    top: 60px;
+  }
+}
+
+.stepContent {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+@media (min-width: 768px) {
+  .stepContent {
+    margin-left: 0;
+  }
+}

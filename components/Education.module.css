@@ -1,0 +1,53 @@
+.educationSection {
+  width: 100%;
+  padding: 4rem 0;
+  border-bottom: 1px dashed var(--neon-cyan);
+}
+
+.splitLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+@media (min-width: 992px) {
+  .splitLayout {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.leftCol {
+  flex: 1;
+}
+
+.rightCol {
+  flex: 1.5;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.eduItem {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.eduItem strong {
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.eduItem span {
+  color: var(--neon-cyan);
+  font-weight: 400;
+  margin-top: 0.25rem;
+}

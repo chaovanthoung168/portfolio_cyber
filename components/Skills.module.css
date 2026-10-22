@@ -1,0 +1,30 @@
+.skillsSection {
+  width: 100%;
+  padding: 4rem 0;
+  background-color: var(--bg-base);
+}
+
+.content {
+  width: 100%;
+}
+
+.tagGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.skillTag {
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--neon-cyan);
+  cursor: crosshair;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+}
+
+.skillTag:hover {
+  background-color: rgba(0, 240, 255, 0.2);
+  color: #fff;
+}

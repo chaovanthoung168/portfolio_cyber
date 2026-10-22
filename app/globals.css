@@ -1,26 +1,142 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-base: #050505;
+  --text-base: #e0e0e0;
+  --text-muted: #888888;
+  --neon-cyan: #00f0ff;
+  --neon-pink: #ff003c;
+  --neon-yellow: #f3e600;
+  --hud-bg: rgba(0, 240, 255, 0.05);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* We will enforce dark mode for Cyberpunk, but allow light to invert heavily */
+[data-theme="light"] {
+  --bg-base: #f5f5f5;
+  --text-base: #050505;
+  --neon-cyan: #0055ff;
+  --neon-pink: #d90000;
+  --neon-yellow: #ff9900;
+  --hud-bg: rgba(0, 85, 255, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html, body {
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-base);
+  color: var(--text-base);
+  font-family: 'Courier New', Courier, monospace; /* System terminal feel */
+  line-height: 1.6;
+}
+
+/* CRT Scanlines Overlay */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Base Layout Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Typography Utilities */
+.cyber-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--text-base);
+  text-shadow: 2px 2px 0px var(--neon-cyan), -2px -2px 0px var(--neon-pink);
+  letter-spacing: 2px;
+}
+
+.cyber-subtitle {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--neon-yellow);
+  border-left: 4px solid var(--neon-yellow);
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.body-text {
+  font-size: 1.1rem;
+  max-width: 800px;
+}
+
+/* Cyber Card with Clip Path */
+.cyber-card {
+  background-color: var(--hud-bg);
+  border: 1px solid var(--neon-cyan);
+  padding: 2rem;
+  position: relative;
+  /* Cyberpunk cut corner */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  transition: all 0.3s ease;
+}
+
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--neon-cyan);
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+.cyber-card:hover {
+  background-color: rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+/* Glitch Hover Effect */
+.glitch-hover:hover {
+  animation: glitch-anim 0.2s linear infinite;
+}
+
+@keyframes glitch-anim {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
+
+/* Entrance Animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

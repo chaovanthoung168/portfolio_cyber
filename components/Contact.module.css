@@ -1,0 +1,83 @@
+.contactSection {
+  width: 100%;
+  padding: 4rem 0;
+  border-top: 1px dashed var(--neon-cyan);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.contactForm {
+  width: 100%;
+  max-width: 600px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  color: var(--neon-cyan);
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.input, .textarea {
+  background: rgba(0, 240, 255, 0.05);
+  border: 1px solid var(--neon-cyan);
+  padding: 1rem;
+  color: var(--text-base);
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+}
+
+.input:focus, .textarea:focus {
+  background: rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.submitBtn {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: transparent;
+  border: 1px solid var(--neon-pink);
+  color: var(--neon-pink);
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: crosshair;
+  transition: all 0.3s ease;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+}
+
+.submitBtn:hover {
+  background: var(--neon-pink);
+  color: #000;
+  box-shadow: 0 0 20px rgba(255, 0, 60, 0.5);
+}
+
+[data-theme="light"] .submitBtn:hover {
+  color: #fff;
+}
