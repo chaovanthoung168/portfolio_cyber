@@ -16,7 +16,7 @@ export default function Hero() {
           <div className="cyber-card" style={{ display: 'inline-block', marginBottom: '2rem', padding: '0.5rem 1rem' }}>
             <span style={{ color: 'var(--neon-yellow)', fontWeight: 'bold' }}>[ STATUS: ONLINE ]</span>
           </div>
-          <h1 className="cyber-title glitch-hover">CHAO<br/>VANTHOUNG 5</h1>
+          <h1 className="cyber-title glitch-hover">CHAO<br/>VANTHOUNG v6</h1>
           <h2 className="cyber-subtitle" style={{ marginTop: '2rem' }}>SYS.DEV // FULLSTACK</h2>
           <p className="body-text" style={{ marginTop: '1rem', color: 'var(--text-muted)' }}>
             &gt; Initializing creative protocols...<br/>
